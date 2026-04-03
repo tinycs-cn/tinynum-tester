@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/tensorhero/tester-utils/runner"
-	"github.com/tensorhero/tester-utils/test_case_harness"
-	"github.com/tensorhero/tester-utils/tester_definition"
-	"github.com/tensorhero/tinynum-tester/internal/helpers"
+	"github.com/tensorhero-cn/tester-utils/runner"
+	"github.com/tensorhero-cn/tester-utils/test_case_harness"
+	"github.com/tensorhero-cn/tester-utils/tester_definition"
+	"github.com/tensorhero-cn/tinynum-tester/internal/helpers"
 )
 
 func e13JoinTestCase() tester_definition.TestCase {

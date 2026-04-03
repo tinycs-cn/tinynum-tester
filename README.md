@@ -5,7 +5,7 @@ Automated testing tool for the TinyNum course.
 ## Option 1: Build from Source
 
 ```bash
-git clone https://github.com/tensorhero/tinynum-tester
+git clone https://github.com/tensorhero-cn/tinynum-tester
 cd tinynum-tester
 go build .
 ./tinynum-tester -s storage-and-shape -d ~/my-solution/java
@@ -39,7 +39,7 @@ Usage: `chmod +x test.sh && ./test.sh broadcasting python`
 **Local build (optional)**
 
 ```bash
-git clone https://github.com/tensorhero/tinynum-tester
+git clone https://github.com/tensorhero-cn/tinynum-tester
 cd tinynum-tester
 docker build -t my-tester .
 # Usage: docker run --rm --user $(id -u):$(id -g) -v ~/my-solution:/workspace my-tester -s storage-and-shape -d /workspace/java
