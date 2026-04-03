@@ -19,8 +19,8 @@ go build .
 
 ```bash
 cd ~/my-solution  # your solution root (contains java/ or python/)
-docker pull ghcr.io/tensorhero/tinynum-tester:latest
-docker run --rm --user $(id -u):$(id -g) -v "$(pwd):/workspace" ghcr.io/tensorhero/tinynum-tester:latest -s storage-and-shape -d /workspace/java
+docker pull ghcr.io/tensorhero-cn/tinynum-tester:latest
+docker run --rm --user $(id -u):$(id -g) -v "$(pwd):/workspace" ghcr.io/tensorhero-cn/tinynum-tester:latest -s storage-and-shape -d /workspace/java
 ```
 
 **Simplified script (recommended)**
@@ -30,7 +30,7 @@ Create `test.sh` in your solution root:
 ```bash
 #!/bin/bash
 LANG=${2:-java}
-docker run --rm --user $(id -u):$(id -g) -v "$(pwd):/workspace" ghcr.io/tensorhero/tinynum-tester:latest \
+docker run --rm --user $(id -u):$(id -g) -v "$(pwd):/workspace" ghcr.io/tensorhero-cn/tinynum-tester:latest \
   -s "${1:-storage-and-shape}" -d "/workspace/${LANG}"
 ```
 
