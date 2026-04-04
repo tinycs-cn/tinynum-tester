@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/tensorhero-cn/tester-utils/runner"
-	"github.com/tensorhero-cn/tester-utils/test_case_harness"
-	"github.com/tensorhero-cn/tester-utils/tester_definition"
-	"github.com/tensorhero-cn/tinynum-tester/internal/helpers"
+	"github.com/bootcraft-cn/tester-utils/runner"
+	"github.com/bootcraft-cn/tester-utils/test_case_harness"
+	"github.com/bootcraft-cn/tester-utils/tester_definition"
+	"github.com/bootcraft-cn/tinynum-tester/internal/helpers"
 )
 
 func e06BinaryOpsTestCase() tester_definition.TestCase {
