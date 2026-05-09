@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/bootcraft-cn/tester-utils/runner"
-	"github.com/bootcraft-cn/tester-utils/test_case_harness"
-	"github.com/bootcraft-cn/tester-utils/tester_definition"
-	"github.com/bootcraft-cn/tinynum-tester/internal/helpers"
+	"github.com/tinycs-cn/tester-utils/runner"
+	"github.com/tinycs-cn/tester-utils/test_case_harness"
+	"github.com/tinycs-cn/tester-utils/tester_definition"
+	"github.com/tinycs-cn/tinynum-tester/internal/helpers"
 )
 
 func e02StridesTestCase() tester_definition.TestCase {
@@ -66,7 +66,8 @@ func testE02Strides(harness *test_case_harness.TestCaseHarness) error {
 		{"isContiguous_fresh", "true", "freshly created array isContiguous"},
 
 		// error
-		{"error_wrong_indices", "EXCEPTION", "get with wrong index count throws"},
+		{"error_wrong_indices", "ERROR", "get with wrong index count throws"},
+		{"error_out_of_bounds", "ERROR", "get with out-of-bounds index throws"},
 	}
 
 	for _, tc := range tests {

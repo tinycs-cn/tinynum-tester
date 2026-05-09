@@ -4,13 +4,15 @@
 #
 # 分支模型：solution 仓库每种语言一个分支（java / python），
 # 脚本通过 git worktree 将各分支 checkout 到临时目录中测试。
+# starter 仓库各语言独立 repo（tinynum-python-starter / tinynum-java-starter），
+# 测试时从对应 starter repo 的 main 分支复制 test driver 到 solution worktree。
 
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TESTER_DIR="$(dirname "$SCRIPT_DIR")"
-SOLUTION_DIR="${TESTER_DIR}/../tinynum-solution"
-STARTER_DIR="${TESTER_DIR}/../tinynum-starter"
+SOLUTION_DIR="${TESTER_DIR}/../solution"
+STARTER_DIR="${TESTER_DIR}/../starter"
 
 # 构建 tester
 cd "$TESTER_DIR"
@@ -53,38 +55,41 @@ for lang in "${LANGUAGES[@]}"; do
     echo ""
 
     # 使用 git worktree 将语言分支 checkout 到临时目录
+    # 若当前分支已是目标分支，直接使用主目录
     worktree_dir="${SOLUTION_DIR}/.worktree-${lang}"
-    if [ -d "$worktree_dir" ]; then
-        git -C "$SOLUTION_DIR" worktree remove --force "$worktree_dir" 2>/dev/null || rm -rf "$worktree_dir"
+    use_worktree=true
+
+    current_branch=$(git -C "$SOLUTION_DIR" branch --show-current 2>/dev/null || true)
+    if [ "$current_branch" = "$lang" ]; then
+        sol_dir="$SOLUTION_DIR"
+        use_worktree=false
+    else
+        if [ -d "$worktree_dir" ]; then
+            git -C "$SOLUTION_DIR" worktree remove --force "$worktree_dir" 2>/dev/null || rm -rf "$worktree_dir"
+        fi
+        if ! git -C "$SOLUTION_DIR" worktree add "$worktree_dir" "$lang" 2>/dev/null; then
+            echo "⏭️  [${lang}] SKIPPED - branch not found"
+            ((SKIPPED += ${#STAGES[@]}))
+            echo ""
+            continue
+        fi
+        sol_dir="$worktree_dir"
     fi
-    git -C "$SOLUTION_DIR" worktree add "$worktree_dir" "$lang" 2>/dev/null
 
-    sol_dir="$worktree_dir"
-
-    if [ ! -d "$sol_dir" ]; then
-        echo "⏭️  [${lang}] SKIPPED - branch not found"
-        ((SKIPPED += ${#STAGES[@]}))
-        echo ""
-        continue
-    fi
-
-    # Ensure test drivers are present in solution dir (copy from starter branch)
-    starter_worktree="${STARTER_DIR}/.worktree-${lang}"
-    if [ -d "$starter_worktree" ]; then
-        git -C "$STARTER_DIR" worktree remove --force "$starter_worktree" 2>/dev/null || rm -rf "$starter_worktree"
-    fi
-    git -C "$STARTER_DIR" worktree add "$starter_worktree" "$lang" 2>/dev/null
-
+    # 从对应 starter repo 的 main 分支复制 test driver 到 solution worktree
+    # （starter 各语言是独立 repo，无需 worktree）
     if [ "$lang" = "java" ]; then
+        starter_tests="${STARTER_DIR}/tinynum-java-starter/tests"
         mkdir -p "${sol_dir}/tests"
-        cp -f "${starter_worktree}/tests/"*.java "${sol_dir}/tests/" 2>/dev/null || true
+        cp -f "${starter_tests}/"*.java "${sol_dir}/tests/" 2>/dev/null || true
     elif [ "$lang" = "python" ]; then
+        starter_tests="${STARTER_DIR}/tinynum-python-starter/tests"
         mkdir -p "${sol_dir}/tests"
-        cp -f "${starter_worktree}/tests/"*.py "${sol_dir}/tests/" 2>/dev/null || true
+        cp -f "${starter_tests}/"*.py "${sol_dir}/tests/" 2>/dev/null || true
     fi
 
     for stage in "${STAGES[@]}"; do
-        printf "🧪 [%-20s %6s] Testing... " "$stage" "$lang"
+        printf "🧪 [%-24s %6s] Testing... " "$stage" "$lang"
 
         start_time=$(python3 -c 'import time; print(time.time())')
 
@@ -103,13 +108,12 @@ for lang in "${LANGUAGES[@]}"; do
         TOTAL_TIME=$(python3 -c "print(f'{$TOTAL_TIME + $elapsed:.2f}')")
     done
 
-    echo ""
-done
+    # 每种语言测试完后立即清理 worktree
+    if [ "$use_worktree" = true ]; then
+        git -C "$SOLUTION_DIR" worktree remove --force "$worktree_dir" 2>/dev/null || true
+    fi
 
-# Cleanup worktrees
-for lang in "${LANGUAGES[@]}"; do
-    git -C "$SOLUTION_DIR" worktree remove --force "${SOLUTION_DIR}/.worktree-${lang}" 2>/dev/null || true
-    git -C "$STARTER_DIR" worktree remove --force "${STARTER_DIR}/.worktree-${lang}" 2>/dev/null || true
+    echo ""
 done
 
 echo "=========================================="

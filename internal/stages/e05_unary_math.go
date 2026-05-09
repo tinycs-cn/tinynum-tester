@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/bootcraft-cn/tester-utils/runner"
-	"github.com/bootcraft-cn/tester-utils/test_case_harness"
-	"github.com/bootcraft-cn/tester-utils/tester_definition"
-	"github.com/bootcraft-cn/tinynum-tester/internal/helpers"
+	"github.com/tinycs-cn/tester-utils/runner"
+	"github.com/tinycs-cn/tester-utils/test_case_harness"
+	"github.com/tinycs-cn/tester-utils/tester_definition"
+	"github.com/tinycs-cn/tinynum-tester/internal/helpers"
 )
 
 func e05UnaryMathTestCase() tester_definition.TestCase {
@@ -56,6 +56,10 @@ func testE05UnaryMath(harness *test_case_harness.TestCaseHarness) error {
 		{"pow_half", "[1.0, 2.0, 3.0]", "pow(0.5) == sqrt"},
 		{"unary_independent", "1.0", "unary returns new array (original unchanged)"},
 		{"unary_transposed", "[[1.0, 16.0], [4.0, 25.0], [9.0, 36.0]]", "unary works on transposed view"},
+		// non-zero values: catches always-zero / trivial-identity implementations
+		{"sin_half_pi", "1.0", "sin(π/2) == 1.0"},
+		{"cos_pi", "-1.0", "cos(π) == -1.0"},
+		{"tanh_large", "1.0", "tanh(100) == 1.0"},
 	}
 
 	for _, tc := range tests {

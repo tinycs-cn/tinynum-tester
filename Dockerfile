@@ -3,7 +3,7 @@
 # This Dockerfile builds tinynum-tester using the published tester-utils from GitHub
 # Build from the tinynum-tester directory:
 #   cd tinynum-tester
-#   docker build -t ghcr.io/tensorhero/tinynum-tester .
+#   docker build -t ghcr.io/tinycs/tinynum-tester .
 
 # Stage 1: Build the Go binary
 FROM golang:1.24-bookworm AS builder

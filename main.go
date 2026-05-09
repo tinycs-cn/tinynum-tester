@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/bootcraft-cn/tinynum-tester/internal/stages"
-	tester_utils "github.com/bootcraft-cn/tester-utils"
+	"github.com/tinycs-cn/tinynum-tester/internal/stages"
+	tester_utils "github.com/tinycs-cn/tester-utils"
 )
 
 func main() {

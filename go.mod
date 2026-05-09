@@ -1,8 +1,8 @@
-module github.com/bootcraft-cn/tinynum-tester
+module github.com/tinycs-cn/tinynum-tester
 
 go 1.24
 
-require github.com/bootcraft-cn/tester-utils v1.8.0
+require github.com/tinycs-cn/tester-utils v1.11.0
 
 require (
 	github.com/creack/pty v1.1.24 // indirect

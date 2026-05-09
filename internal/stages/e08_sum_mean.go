@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/bootcraft-cn/tester-utils/runner"
-	"github.com/bootcraft-cn/tester-utils/test_case_harness"
-	"github.com/bootcraft-cn/tester-utils/tester_definition"
-	"github.com/bootcraft-cn/tinynum-tester/internal/helpers"
+	"github.com/tinycs-cn/tester-utils/runner"
+	"github.com/tinycs-cn/tester-utils/test_case_harness"
+	"github.com/tinycs-cn/tester-utils/tester_definition"
+	"github.com/tinycs-cn/tinynum-tester/internal/helpers"
 )
 
 func e08SumMeanTestCase() tester_definition.TestCase {

@@ -1,7 +1,7 @@
 package stages
 
 import (
-	"github.com/bootcraft-cn/tester-utils/tester_definition"
+	"github.com/tinycs-cn/tester-utils/tester_definition"
 )
 
 // GetDefinition returns the TesterDefinition for the tinynum course.
@@ -35,13 +35,13 @@ func GetDefinition() tester_definition.TesterDefinition {
 // testDriver is the class name (e.g. "TestE01").
 func javaRule(testDriver string) tester_definition.LanguageRule {
 	return tester_definition.LanguageRule{
-		DetectFile: "src/main/java/dev/tensorhero/tinynum/NDArray.java",
+		DetectFile: "src/main/java/cn/tinycs/tinynum/NDArray.java",
 		Language:   "java",
-		Source:     "src/main/java/dev/tensorhero/tinynum/NDArray.java",
+		Source:     "src/main/java/cn/tinycs/tinynum/NDArray.java",
 		Flags: []string{
 			"-encoding", "UTF-8",
-			"src/main/java/dev/tensorhero/tinynum/Slice.java",
-			"src/main/java/dev/tensorhero/tinynum/DType.java",
+			"src/main/java/cn/tinycs/tinynum/Slice.java",
+			"src/main/java/cn/tinycs/tinynum/DType.java",
 			"tests/" + testDriver + ".java",
 		},
 		RunCmd:  "java",

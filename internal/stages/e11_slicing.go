@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/bootcraft-cn/tester-utils/runner"
-	"github.com/bootcraft-cn/tester-utils/test_case_harness"
-	"github.com/bootcraft-cn/tester-utils/tester_definition"
-	"github.com/bootcraft-cn/tinynum-tester/internal/helpers"
+	"github.com/tinycs-cn/tester-utils/runner"
+	"github.com/tinycs-cn/tester-utils/test_case_harness"
+	"github.com/tinycs-cn/tester-utils/tester_definition"
+	"github.com/tinycs-cn/tinynum-tester/internal/helpers"
 )
 
 func e11SlicingTestCase() tester_definition.TestCase {
@@ -63,6 +63,7 @@ func testE11Slicing(harness *test_case_harness.TestCaseHarness) error {
 		// errors
 		{"squeeze_error", "ERROR", "squeeze non-1 axis"},
 		{"slice_range_error", "ERROR", "slice wrong number of ranges"},
+		{"error_step_neg", "ERROR", "slice with negative step throws"},
 	}
 
 	for _, tc := range tests {

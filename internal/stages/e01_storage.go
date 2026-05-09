@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/bootcraft-cn/tester-utils/runner"
-	"github.com/bootcraft-cn/tester-utils/test_case_harness"
-	"github.com/bootcraft-cn/tester-utils/tester_definition"
-	"github.com/bootcraft-cn/tinynum-tester/internal/helpers"
+	"github.com/tinycs-cn/tester-utils/runner"
+	"github.com/tinycs-cn/tester-utils/test_case_harness"
+	"github.com/tinycs-cn/tester-utils/tester_definition"
+	"github.com/tinycs-cn/tinynum-tester/internal/helpers"
 )
 
 func e01StorageTestCase() tester_definition.TestCase {
@@ -45,7 +45,7 @@ func testE01Storage(harness *test_case_harness.TestCaseHarness) error {
 	}{
 		{"zeros_size", "6", "zeros(2,3).size() == 6"},
 		{"zeros_ndim", "2", "zeros(2,3).ndim() == 2"},
-		{"zeros_shape", "2,3", "zeros(2,3).shape() == [2,3]"},
+		{"zeros_shape", "[2, 3]", "zeros(2,3).shape() == [2,3]"},
 		{"zeros_toString", "[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]", "zeros(2,3) toString"},
 		{"ones_size", "12", "ones(3,4).size() == 12"},
 		{"ones_toString", "[[1.0, 1.0, 1.0], [1.0, 1.0, 1.0]]", "ones(2,3) toString values are 1.0"},
@@ -57,7 +57,7 @@ func testE01Storage(harness *test_case_harness.TestCaseHarness) error {
 		{"3d_ndim", "3", "3D array ndim() == 3"},
 		{"3d_size", "12", "3D array size() == 12"},
 		{"3d_toString", "[[[1.0, 2.0], [3.0, 4.0], [5.0, 6.0]], [[7.0, 8.0], [9.0, 10.0], [11.0, 12.0]]]", "3D toString recursive nesting"},
-		{"error_mismatch", "EXCEPTION", "fromArray shape mismatch throws exception"},
+		{"error_mismatch", "ERROR", "fromArray shape mismatch throws"},
 	}
 
 	for _, tc := range tests {
