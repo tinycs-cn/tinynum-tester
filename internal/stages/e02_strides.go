@@ -15,7 +15,7 @@ func e02StridesTestCase() tester_definition.TestCase {
 		Slug:        "strides-and-indexing",
 		Timeout:     30 * time.Second,
 		TestFunc:    testE02Strides,
-		CompileStep: autoCompileStep("TestE02", "test_e02"),
+		CompileStep: autoCompileStep("TestS02", "test_s02"),
 	}
 }
 

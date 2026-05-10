@@ -15,7 +15,7 @@ func e10MatmulTestCase() tester_definition.TestCase {
 		Slug:        "matmul",
 		Timeout:     30 * time.Second,
 		TestFunc:    testE10Matmul,
-		CompileStep: autoCompileStep("TestE10", "test_e10"),
+		CompileStep: autoCompileStep("TestS10", "test_s10"),
 	}
 }
 

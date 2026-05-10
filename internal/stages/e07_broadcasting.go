@@ -15,7 +15,7 @@ func e07BroadcastingTestCase() tester_definition.TestCase {
 		Slug:        "broadcasting",
 		Timeout:     30 * time.Second,
 		TestFunc:    testE07Broadcasting,
-		CompileStep: autoCompileStep("TestE07", "test_e07"),
+		CompileStep: autoCompileStep("TestS07", "test_s07"),
 	}
 }
 

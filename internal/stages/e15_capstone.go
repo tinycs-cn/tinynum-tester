@@ -15,7 +15,7 @@ func e15CapstoneTestCase() tester_definition.TestCase {
 		Slug:        "capstone-toolkit",
 		Timeout:     30 * time.Second,
 		TestFunc:    testE15Capstone,
-		CompileStep: autoCompileStep("TestE15", "test_e15"),
+		CompileStep: autoCompileStep("TestS15", "test_s15"),
 	}
 }
 

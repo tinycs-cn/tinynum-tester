@@ -15,7 +15,7 @@ func e03ReshapeTestCase() tester_definition.TestCase {
 		Slug:        "reshape",
 		Timeout:     30 * time.Second,
 		TestFunc:    testE03Reshape,
-		CompileStep: autoCompileStep("TestE03", "test_e03"),
+		CompileStep: autoCompileStep("TestS03", "test_s03"),
 	}
 }
 

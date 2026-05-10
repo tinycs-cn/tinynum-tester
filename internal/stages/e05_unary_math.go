@@ -15,7 +15,7 @@ func e05UnaryMathTestCase() tester_definition.TestCase {
 		Slug:        "unary-math",
 		Timeout:     30 * time.Second,
 		TestFunc:    testE05UnaryMath,
-		CompileStep: autoCompileStep("TestE05", "test_e05"),
+		CompileStep: autoCompileStep("TestS05", "test_s05"),
 	}
 }
 

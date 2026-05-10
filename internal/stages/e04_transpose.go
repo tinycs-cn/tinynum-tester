@@ -15,7 +15,7 @@ func e04TransposeTestCase() tester_definition.TestCase {
 		Slug:        "transpose",
 		Timeout:     30 * time.Second,
 		TestFunc:    testE04Transpose,
-		CompileStep: autoCompileStep("TestE04", "test_e04"),
+		CompileStep: autoCompileStep("TestS04", "test_s04"),
 	}
 }
 

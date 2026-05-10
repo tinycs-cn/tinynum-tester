@@ -15,7 +15,7 @@ func e12CreationTestCase() tester_definition.TestCase {
 		Slug:        "creation-and-random",
 		Timeout:     30 * time.Second,
 		TestFunc:    testE12Creation,
-		CompileStep: autoCompileStep("TestE12", "test_e12"),
+		CompileStep: autoCompileStep("TestS12", "test_s12"),
 	}
 }
 

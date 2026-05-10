@@ -15,7 +15,7 @@ func e11SlicingTestCase() tester_definition.TestCase {
 		Slug:        "slicing-and-views",
 		Timeout:     30 * time.Second,
 		TestFunc:    testE11Slicing,
-		CompileStep: autoCompileStep("TestE11", "test_e11"),
+		CompileStep: autoCompileStep("TestS11", "test_s11"),
 	}
 }
 

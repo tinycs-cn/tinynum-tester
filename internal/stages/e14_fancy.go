@@ -15,7 +15,7 @@ func e14FancyTestCase() tester_definition.TestCase {
 		Slug:        "fancy-indexing",
 		Timeout:     30 * time.Second,
 		TestFunc:    testE14Fancy,
-		CompileStep: autoCompileStep("TestE14", "test_e14"),
+		CompileStep: autoCompileStep("TestS14", "test_s14"),
 	}
 }
 

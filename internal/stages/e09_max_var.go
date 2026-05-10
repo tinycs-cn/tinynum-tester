@@ -15,7 +15,7 @@ func e09MaxVarTestCase() tester_definition.TestCase {
 		Slug:        "max-var-and-friends",
 		Timeout:     30 * time.Second,
 		TestFunc:    testE09MaxVar,
-		CompileStep: autoCompileStep("TestE09", "test_e09"),
+		CompileStep: autoCompileStep("TestS09", "test_s09"),
 	}
 }
 

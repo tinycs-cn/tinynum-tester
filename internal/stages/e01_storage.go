@@ -15,7 +15,7 @@ func e01StorageTestCase() tester_definition.TestCase {
 		Slug:        "storage-and-shape",
 		Timeout:     30 * time.Second,
 		TestFunc:    testE01Storage,
-		CompileStep: autoCompileStep("TestE01", "test_e01"),
+		CompileStep: autoCompileStep("TestS01", "test_s01"),
 	}
 }
 

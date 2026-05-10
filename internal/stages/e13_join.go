@@ -15,7 +15,7 @@ func e13JoinTestCase() tester_definition.TestCase {
 		Slug:        "join-and-transform",
 		Timeout:     30 * time.Second,
 		TestFunc:    testE13Join,
-		CompileStep: autoCompileStep("TestE13", "test_e13"),
+		CompileStep: autoCompileStep("TestS13", "test_s13"),
 	}
 }
 

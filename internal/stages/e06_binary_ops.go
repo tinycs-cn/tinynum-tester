@@ -15,7 +15,7 @@ func e06BinaryOpsTestCase() tester_definition.TestCase {
 		Slug:        "binary-ops",
 		Timeout:     30 * time.Second,
 		TestFunc:    testE06BinaryOps,
-		CompileStep: autoCompileStep("TestE06", "test_e06"),
+		CompileStep: autoCompileStep("TestS06", "test_s06"),
 	}
 }
 

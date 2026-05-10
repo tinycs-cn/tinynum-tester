@@ -15,7 +15,7 @@ func e08SumMeanTestCase() tester_definition.TestCase {
 		Slug:        "sum-and-mean",
 		Timeout:     30 * time.Second,
 		TestFunc:    testE08SumMean,
-		CompileStep: autoCompileStep("TestE08", "test_e08"),
+		CompileStep: autoCompileStep("TestS08", "test_s08"),
 	}
 }
 
