@@ -14,12 +14,12 @@ func e10MatmulTestCase() tester_definition.TestCase {
 	return tester_definition.TestCase{
 		Slug:        "matmul",
 		Timeout:     30 * time.Second,
-		TestFunc:    testE10Matmul,
+		TestFunc:    testS10Matmul,
 		CompileStep: autoCompileStep("TestS10", "test_s10"),
 	}
 }
 
-func testE10Matmul(harness *test_case_harness.TestCaseHarness) error {
+func testS10Matmul(harness *test_case_harness.TestCaseHarness) error {
 	logger := harness.Logger
 	workDir := harness.SubmissionDir
 	lang := harness.DetectedLang
@@ -71,6 +71,6 @@ func testE10Matmul(harness *test_case_harness.TestCaseHarness) error {
 		logger.Successf("✓ %s", tc.label)
 	}
 
-	logger.Successf("All E10 tests passed!")
+	logger.Successf("All S10 tests passed!")
 	return nil
 }

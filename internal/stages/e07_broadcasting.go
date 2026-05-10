@@ -14,12 +14,12 @@ func e07BroadcastingTestCase() tester_definition.TestCase {
 	return tester_definition.TestCase{
 		Slug:        "broadcasting",
 		Timeout:     30 * time.Second,
-		TestFunc:    testE07Broadcasting,
+		TestFunc:    testS07Broadcasting,
 		CompileStep: autoCompileStep("TestS07", "test_s07"),
 	}
 }
 
-func testE07Broadcasting(harness *test_case_harness.TestCaseHarness) error {
+func testS07Broadcasting(harness *test_case_harness.TestCaseHarness) error {
 	logger := harness.Logger
 	workDir := harness.SubmissionDir
 	lang := harness.DetectedLang
@@ -72,6 +72,6 @@ func testE07Broadcasting(harness *test_case_harness.TestCaseHarness) error {
 		logger.Successf("✓ %s", tc.label)
 	}
 
-	logger.Successf("All E07 tests passed!")
+	logger.Successf("All S07 tests passed!")
 	return nil
 }

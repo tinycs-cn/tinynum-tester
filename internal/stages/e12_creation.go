@@ -14,12 +14,12 @@ func e12CreationTestCase() tester_definition.TestCase {
 	return tester_definition.TestCase{
 		Slug:        "creation-and-random",
 		Timeout:     30 * time.Second,
-		TestFunc:    testE12Creation,
+		TestFunc:    testS12Creation,
 		CompileStep: autoCompileStep("TestS12", "test_s12"),
 	}
 }
 
-func testE12Creation(harness *test_case_harness.TestCaseHarness) error {
+func testS12Creation(harness *test_case_harness.TestCaseHarness) error {
 	logger := harness.Logger
 	workDir := harness.SubmissionDir
 	lang := harness.DetectedLang
@@ -85,6 +85,6 @@ func testE12Creation(harness *test_case_harness.TestCaseHarness) error {
 		logger.Successf("✓ %s", tc.label)
 	}
 
-	logger.Successf("All E12 tests passed!")
+	logger.Successf("All S12 tests passed!")
 	return nil
 }

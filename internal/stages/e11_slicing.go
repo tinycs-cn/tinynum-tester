@@ -14,12 +14,12 @@ func e11SlicingTestCase() tester_definition.TestCase {
 	return tester_definition.TestCase{
 		Slug:        "slicing-and-views",
 		Timeout:     30 * time.Second,
-		TestFunc:    testE11Slicing,
+		TestFunc:    testS11Slicing,
 		CompileStep: autoCompileStep("TestS11", "test_s11"),
 	}
 }
 
-func testE11Slicing(harness *test_case_harness.TestCaseHarness) error {
+func testS11Slicing(harness *test_case_harness.TestCaseHarness) error {
 	logger := harness.Logger
 	workDir := harness.SubmissionDir
 	lang := harness.DetectedLang
@@ -73,6 +73,6 @@ func testE11Slicing(harness *test_case_harness.TestCaseHarness) error {
 		logger.Successf("✓ %s", tc.label)
 	}
 
-	logger.Successf("All E11 tests passed!")
+	logger.Successf("All S11 tests passed!")
 	return nil
 }

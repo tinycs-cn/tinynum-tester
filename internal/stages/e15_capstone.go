@@ -14,12 +14,12 @@ func e15CapstoneTestCase() tester_definition.TestCase {
 	return tester_definition.TestCase{
 		Slug:        "capstone-toolkit",
 		Timeout:     30 * time.Second,
-		TestFunc:    testE15Capstone,
+		TestFunc:    testS15Capstone,
 		CompileStep: autoCompileStep("TestS15", "test_s15"),
 	}
 }
 
-func testE15Capstone(harness *test_case_harness.TestCaseHarness) error {
+func testS15Capstone(harness *test_case_harness.TestCaseHarness) error {
 	logger := harness.Logger
 	workDir := harness.SubmissionDir
 	lang := harness.DetectedLang
@@ -85,6 +85,6 @@ func testE15Capstone(harness *test_case_harness.TestCaseHarness) error {
 		logger.Successf("✓ %s", tc.label)
 	}
 
-	logger.Successf("All E15 tests passed!")
+	logger.Successf("All S15 tests passed!")
 	return nil
 }

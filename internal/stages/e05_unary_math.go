@@ -14,12 +14,12 @@ func e05UnaryMathTestCase() tester_definition.TestCase {
 	return tester_definition.TestCase{
 		Slug:        "unary-math",
 		Timeout:     30 * time.Second,
-		TestFunc:    testE05UnaryMath,
+		TestFunc:    testS05UnaryMath,
 		CompileStep: autoCompileStep("TestS05", "test_s05"),
 	}
 }
 
-func testE05UnaryMath(harness *test_case_harness.TestCaseHarness) error {
+func testS05UnaryMath(harness *test_case_harness.TestCaseHarness) error {
 	logger := harness.Logger
 	workDir := harness.SubmissionDir
 	lang := harness.DetectedLang
@@ -69,6 +69,6 @@ func testE05UnaryMath(harness *test_case_harness.TestCaseHarness) error {
 		logger.Successf("✓ %s", tc.label)
 	}
 
-	logger.Successf("All E05 tests passed!")
+	logger.Successf("All S05 tests passed!")
 	return nil
 }

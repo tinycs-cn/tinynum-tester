@@ -14,12 +14,12 @@ func e09MaxVarTestCase() tester_definition.TestCase {
 	return tester_definition.TestCase{
 		Slug:        "max-var-and-friends",
 		Timeout:     30 * time.Second,
-		TestFunc:    testE09MaxVar,
+		TestFunc:    testS09MaxVar,
 		CompileStep: autoCompileStep("TestS09", "test_s09"),
 	}
 }
 
-func testE09MaxVar(harness *test_case_harness.TestCaseHarness) error {
+func testS09MaxVar(harness *test_case_harness.TestCaseHarness) error {
 	logger := harness.Logger
 	workDir := harness.SubmissionDir
 	lang := harness.DetectedLang
@@ -78,6 +78,6 @@ func testE09MaxVar(harness *test_case_harness.TestCaseHarness) error {
 		logger.Successf("✓ %s", tc.label)
 	}
 
-	logger.Successf("All E09 tests passed!")
+	logger.Successf("All S09 tests passed!")
 	return nil
 }

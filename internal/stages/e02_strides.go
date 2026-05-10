@@ -14,12 +14,12 @@ func e02StridesTestCase() tester_definition.TestCase {
 	return tester_definition.TestCase{
 		Slug:        "strides-and-indexing",
 		Timeout:     30 * time.Second,
-		TestFunc:    testE02Strides,
+		TestFunc:    testS02Strides,
 		CompileStep: autoCompileStep("TestS02", "test_s02"),
 	}
 }
 
-func testE02Strides(harness *test_case_harness.TestCaseHarness) error {
+func testS02Strides(harness *test_case_harness.TestCaseHarness) error {
 	logger := harness.Logger
 	workDir := harness.SubmissionDir
 	lang := harness.DetectedLang
@@ -77,6 +77,6 @@ func testE02Strides(harness *test_case_harness.TestCaseHarness) error {
 		logger.Successf("✓ %s", tc.label)
 	}
 
-	logger.Successf("All E02 tests passed!")
+	logger.Successf("All S02 tests passed!")
 	return nil
 }

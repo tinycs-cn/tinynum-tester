@@ -32,7 +32,7 @@ func GetDefinition() tester_definition.TesterDefinition {
 }
 
 // javaRule creates a LanguageRule for Java auto-detection.
-// testDriver is the class name (e.g. "TestE01").
+// testDriver is the class name (e.g. "TestS01").
 func javaRule(testDriver string) tester_definition.LanguageRule {
 	return tester_definition.LanguageRule{
 		DetectFile: "src/main/java/cn/tinycs/tinynum/NDArray.java",
@@ -50,7 +50,7 @@ func javaRule(testDriver string) tester_definition.LanguageRule {
 }
 
 // pythonRule creates a LanguageRule for Python auto-detection.
-// testDriver is the module name without extension (e.g. "test_e01").
+// testDriver is the module name without extension (e.g. "test_s01").
 func pythonRule(testDriver string) tester_definition.LanguageRule {
 	return tester_definition.LanguageRule{
 		DetectFile: "tinynum/ndarray.py",

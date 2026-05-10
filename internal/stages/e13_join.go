@@ -14,12 +14,12 @@ func e13JoinTestCase() tester_definition.TestCase {
 	return tester_definition.TestCase{
 		Slug:        "join-and-transform",
 		Timeout:     30 * time.Second,
-		TestFunc:    testE13Join,
+		TestFunc:    testS13Join,
 		CompileStep: autoCompileStep("TestS13", "test_s13"),
 	}
 }
 
-func testE13Join(harness *test_case_harness.TestCaseHarness) error {
+func testS13Join(harness *test_case_harness.TestCaseHarness) error {
 	logger := harness.Logger
 	workDir := harness.SubmissionDir
 	lang := harness.DetectedLang
@@ -77,6 +77,6 @@ func testE13Join(harness *test_case_harness.TestCaseHarness) error {
 		logger.Successf("✓ %s", tc.label)
 	}
 
-	logger.Successf("All E13 tests passed!")
+	logger.Successf("All S13 tests passed!")
 	return nil
 }

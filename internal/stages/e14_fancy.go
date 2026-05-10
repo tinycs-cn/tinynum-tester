@@ -14,12 +14,12 @@ func e14FancyTestCase() tester_definition.TestCase {
 	return tester_definition.TestCase{
 		Slug:        "fancy-indexing",
 		Timeout:     30 * time.Second,
-		TestFunc:    testE14Fancy,
+		TestFunc:    testS14Fancy,
 		CompileStep: autoCompileStep("TestS14", "test_s14"),
 	}
 }
 
-func testE14Fancy(harness *test_case_harness.TestCaseHarness) error {
+func testS14Fancy(harness *test_case_harness.TestCaseHarness) error {
 	logger := harness.Logger
 	workDir := harness.SubmissionDir
 	lang := harness.DetectedLang
@@ -70,6 +70,6 @@ func testE14Fancy(harness *test_case_harness.TestCaseHarness) error {
 		logger.Successf("✓ %s", tc.label)
 	}
 
-	logger.Successf("All E14 tests passed!")
+	logger.Successf("All S14 tests passed!")
 	return nil
 }

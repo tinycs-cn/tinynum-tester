@@ -14,12 +14,12 @@ func e03ReshapeTestCase() tester_definition.TestCase {
 	return tester_definition.TestCase{
 		Slug:        "reshape",
 		Timeout:     30 * time.Second,
-		TestFunc:    testE03Reshape,
+		TestFunc:    testS03Reshape,
 		CompileStep: autoCompileStep("TestS03", "test_s03"),
 	}
 }
 
-func testE03Reshape(harness *test_case_harness.TestCaseHarness) error {
+func testS03Reshape(harness *test_case_harness.TestCaseHarness) error {
 	logger := harness.Logger
 	workDir := harness.SubmissionDir
 	lang := harness.DetectedLang
@@ -72,6 +72,6 @@ func testE03Reshape(harness *test_case_harness.TestCaseHarness) error {
 		logger.Successf("✓ %s", tc.label)
 	}
 
-	logger.Successf("All E03 tests passed!")
+	logger.Successf("All S03 tests passed!")
 	return nil
 }

@@ -14,12 +14,12 @@ func e01StorageTestCase() tester_definition.TestCase {
 	return tester_definition.TestCase{
 		Slug:        "storage-and-shape",
 		Timeout:     30 * time.Second,
-		TestFunc:    testE01Storage,
+		TestFunc:    testS01Storage,
 		CompileStep: autoCompileStep("TestS01", "test_s01"),
 	}
 }
 
-func testE01Storage(harness *test_case_harness.TestCaseHarness) error {
+func testS01Storage(harness *test_case_harness.TestCaseHarness) error {
 	logger := harness.Logger
 	workDir := harness.SubmissionDir
 	lang := harness.DetectedLang
@@ -67,6 +67,6 @@ func testE01Storage(harness *test_case_harness.TestCaseHarness) error {
 		logger.Successf("✓ %s", tc.label)
 	}
 
-	logger.Successf("All E01 tests passed!")
+	logger.Successf("All S01 tests passed!")
 	return nil
 }

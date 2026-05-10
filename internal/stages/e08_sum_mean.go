@@ -14,12 +14,12 @@ func e08SumMeanTestCase() tester_definition.TestCase {
 	return tester_definition.TestCase{
 		Slug:        "sum-and-mean",
 		Timeout:     30 * time.Second,
-		TestFunc:    testE08SumMean,
+		TestFunc:    testS08SumMean,
 		CompileStep: autoCompileStep("TestS08", "test_s08"),
 	}
 }
 
-func testE08SumMean(harness *test_case_harness.TestCaseHarness) error {
+func testS08SumMean(harness *test_case_harness.TestCaseHarness) error {
 	logger := harness.Logger
 	workDir := harness.SubmissionDir
 	lang := harness.DetectedLang
@@ -78,6 +78,6 @@ func testE08SumMean(harness *test_case_harness.TestCaseHarness) error {
 		logger.Successf("✓ %s", tc.label)
 	}
 
-	logger.Successf("All E08 tests passed!")
+	logger.Successf("All S08 tests passed!")
 	return nil
 }

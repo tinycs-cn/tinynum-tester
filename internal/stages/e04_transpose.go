@@ -14,12 +14,12 @@ func e04TransposeTestCase() tester_definition.TestCase {
 	return tester_definition.TestCase{
 		Slug:        "transpose",
 		Timeout:     30 * time.Second,
-		TestFunc:    testE04Transpose,
+		TestFunc:    testS04Transpose,
 		CompileStep: autoCompileStep("TestS04", "test_s04"),
 	}
 }
 
-func testE04Transpose(harness *test_case_harness.TestCaseHarness) error {
+func testS04Transpose(harness *test_case_harness.TestCaseHarness) error {
 	logger := harness.Logger
 	workDir := harness.SubmissionDir
 	lang := harness.DetectedLang
@@ -68,6 +68,6 @@ func testE04Transpose(harness *test_case_harness.TestCaseHarness) error {
 		logger.Successf("✓ %s", tc.label)
 	}
 
-	logger.Successf("All E04 tests passed!")
+	logger.Successf("All S04 tests passed!")
 	return nil
 }

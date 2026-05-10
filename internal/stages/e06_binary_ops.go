@@ -14,12 +14,12 @@ func e06BinaryOpsTestCase() tester_definition.TestCase {
 	return tester_definition.TestCase{
 		Slug:        "binary-ops",
 		Timeout:     30 * time.Second,
-		TestFunc:    testE06BinaryOps,
+		TestFunc:    testS06BinaryOps,
 		CompileStep: autoCompileStep("TestS06", "test_s06"),
 	}
 }
 
-func testE06BinaryOps(harness *test_case_harness.TestCaseHarness) error {
+func testS06BinaryOps(harness *test_case_harness.TestCaseHarness) error {
 	logger := harness.Logger
 	workDir := harness.SubmissionDir
 	lang := harness.DetectedLang
@@ -80,6 +80,6 @@ func testE06BinaryOps(harness *test_case_harness.TestCaseHarness) error {
 		logger.Successf("✓ %s", tc.label)
 	}
 
-	logger.Successf("All E06 tests passed!")
+	logger.Successf("All S06 tests passed!")
 	return nil
 }
