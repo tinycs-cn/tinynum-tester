@@ -124,13 +124,18 @@ jobs:
         with:
           go-version: '1.24'
 
-      - name: Build static binary (linux/amd64)
-        run: CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o tinynum-tester-linux-amd64 .
+      - name: Build binaries
+        run: |
+          CGO_ENABLED=0 GOOS=linux   GOARCH=amd64 go build -ldflags="-s -w" -o tinynum-tester-linux-amd64   .
+          CGO_ENABLED=0 GOOS=linux   GOARCH=arm64 go build -ldflags="-s -w" -o tinynum-tester-linux-arm64   .
+          CGO_ENABLED=0 GOOS=darwin  GOARCH=amd64 go build -ldflags="-s -w" -o tinynum-tester-darwin-amd64  .
+          CGO_ENABLED=0 GOOS=darwin  GOARCH=arm64 go build -ldflags="-s -w" -o tinynum-tester-darwin-arm64  .
+          CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o tinynum-tester-windows-amd64.exe .
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: tinynum-tester-linux-amd64
+          files: tinynum-tester-*
           generate_release_notes: true
 
   release-image:
